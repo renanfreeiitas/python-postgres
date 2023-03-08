@@ -1,9 +1,12 @@
+from database import Database
 from user import User
 
-my_user = User('cristian@gmail.com', 'Cristian', 'Sousa', None)
+Database.initialise(database="exercises", host="localhost", user="postgres", password="password")
 
-my_user.save_to_db()
+user = User('pedro@gmail.com', 'Pedro', 'Guerra', None)
 
-user_from_db = User.load_from_db_by_email('renato@gmail.com')
+user.save_to_db()
+
+user_from_db = User.load_from_db_by_email('renanfreitas@gmail.com')
 
 print(user_from_db)

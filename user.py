@@ -12,9 +12,9 @@ class User:
         return "User: {} {}\nemail: {}".format(self.first_name, self.last_name, self.email)
 
     def save_to_db(self):
-        with CursorFromConnectionFromPool() as cursor:  # cursor serve para percorrer linha por linha
+        with CursorFromConnectionFromPool() as cursor:
             cursor.execute('INSERT INTO users (email, first_name, last_name) VALUES (%s, %s, %s)',
-                           (self.email, self.first_name, self.last_name))  # cursor.execute, serve para executar o comando que eu quero passar, neste caso, inserir dados na tabela
+                           (self.email, self.first_name, self.last_name))
 
     @classmethod
     def load_from_db_by_email(cls, email):
